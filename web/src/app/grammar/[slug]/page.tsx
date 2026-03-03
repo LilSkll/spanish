@@ -2,7 +2,7 @@ import { getLines } from "@/lib/bookServer";
 import { extractGrammarTopics, sliceByLines } from "@/lib/bookShared";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -11,8 +11,8 @@ export function generateStaticParams() {
   return topics.map((t) => ({ slug: t.slug }));
 }
 
-export default function GrammarTopicPage({ params }: Props) {
-  const { slug } = params;
+export default async function GrammarTopicPage({ params }: Props) {
+  const { slug } = await params;
 
   const lines = getLines();
   const topics = extractGrammarTopics(lines);

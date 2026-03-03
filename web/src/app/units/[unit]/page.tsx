@@ -2,7 +2,7 @@ import { getLines } from "@/lib/bookServer";
 import { sliceByLines, extractUnits } from "@/lib/bookShared";
 
 type Props = {
-  params: { unit: string };
+  params: Promise<{ unit: string }>;
 };
 
 export function generateStaticParams() {
@@ -11,8 +11,8 @@ export function generateStaticParams() {
   return units.map((u) => ({ unit: String(u.number) }));
 }
 
-export default function UnitPage({ params }: Props) {
-  const { unit } = params;
+export default async function UnitPage({ params }: Props) {
+  const { unit } = await params;
   const unitNumber = Number(unit);
 
   const lines = getLines();

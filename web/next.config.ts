@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: process.env.GITHUB_PAGES ? false : true,
   output: "export",
   trailingSlash: true,
   eslint: {

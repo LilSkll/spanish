@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+.next
+out
+.vercel
+.env*
+
+# Large source artifacts (not required for deployment)
+book.txt
+*.pdf
+
+# Backup of nested git created by create-next-app
+web/.git_BACKUP_*

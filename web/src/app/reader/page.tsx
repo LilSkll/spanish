@@ -1,14 +1,12 @@
 "use client";
 
 import { sliceByLines } from "@/lib/bookShared";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-type Props = {
-  searchParams?: { line?: string };
-};
-
-export default function ReaderPage({ searchParams }: Props) {
-  const line = Number(searchParams?.line ?? "1");
+export default function ReaderPage() {
+  const searchParams = useSearchParams();
+  const line = Number(searchParams.get("line") ?? "1");
 
   const [lines, setLines] = useState<string[] | null>(null);
 

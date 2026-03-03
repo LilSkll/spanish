@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { searchInBook } from "@/lib/bookShared";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-type Props = {
-  searchParams?: { q?: string };
-};
-
-export default function SearchPage({ searchParams }: Props) {
-  const initialQ = (searchParams?.q ?? "").toString();
+export default function SearchPage() {
+  const searchParams = useSearchParams();
+  const initialQ = (searchParams.get("q") ?? "").toString();
   const [q, setQ] = useState(initialQ);
   const [lines, setLines] = useState<string[] | null>(null);
 

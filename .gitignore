@@ -9,5 +9,7 @@ out
 book.txt
 *.pdf
 
+!web/public/book.txt
+
 # Backup of nested git created by create-next-app
 web/.git_BACKUP_*
